@@ -1,7 +1,7 @@
 export const Bio = {
     name: "Rekha panchal",
     roles: [
-      // "UI/UX Designer",
+      "UI/UX Designer",
       "Programmer",
     ],
     description:
