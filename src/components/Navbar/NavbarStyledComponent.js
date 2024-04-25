@@ -1,5 +1,7 @@
 import { Link as LinkR } from 'react-router-dom';
 import styled from 'styled-components';
+// import _defailt from '../../themes/default';
+
 export const Nav = styled.div`
     background-color: ${({theme}) => theme.card_light};
     height: 80px;
@@ -10,7 +12,7 @@ export const Nav = styled.div`
     position: sticky;
     top: 0;
     z-index: 10;
-    @media (max-width: 760px) {
+    @media (max-width: 960px) {
         trastion: 0.8s all ease;
     }
 `;
@@ -32,7 +34,7 @@ export const NavLogo = styled(LinkR)`
     justify-content: start;
     align-items: center;
     text-decoration: none;
-    @media (max-width: 740px) {
+    @media (max-width: 640px) {
       padding: 0 0px;
   }
 `;
@@ -50,7 +52,7 @@ export const NavItems = styled.ul`
     padding: 0 6px;
     list-style: none;
 
-    @media screen and (max-width: 568px) {
+    @media screen and (max-width: 668px) {
       display: none;
     }
 `;
@@ -89,8 +91,8 @@ export const GitHubButton = styled.a`
       background: ${({ theme }) => theme.primary};
       color: ${({ theme }) => theme.white};     
     }
-    @media screen and (max-width: 568px) { 
-    font-size: 14px;
+    @media screen and (max-width: 768px) { 
+    font-size: 10px;
     }
 `;
 
@@ -101,7 +103,7 @@ export const ButtonContainer = styled.div`
   justify-content: end;
   align-items: center;
   padding: 0 6px;
-  @media screen and (max-width: 568px) {
+  @media screen and (max-width: 768px) {
     display: none;
   }
 `;
@@ -109,13 +111,13 @@ export const ButtonContainer = styled.div`
 
 export const MobileIcon = styled.div`
   display: none;
-  @media screen and (max-width: 568px) {
+  @media screen and (max-width: 768px) {
     display: block;
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-100%, 60%);
-    font-size: 1.5rem;
+    transform: translate(-50%, 60%);
+    font-size: 1rem;
     cursor: pointer;
     color: ${({ theme }) => theme.text_primary};
   }
