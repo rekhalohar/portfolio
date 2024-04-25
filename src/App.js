@@ -9,6 +9,7 @@ import Education from "./components/Education";
 import Experience from "./components/Experience"; // Corrected import statement
 // import Projects  from './components/Projects';
 import Contact from "./components/Contact";
+import Footer from "./components/Footer";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const Body = styled.div`
@@ -35,6 +36,7 @@ function App() {
             <Experience />
             <Education />
             <Contact />
+            <Footer/>
           </Wrapper>
           {/* <Projects/> */}
         </Body>

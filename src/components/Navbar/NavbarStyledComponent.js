@@ -15,6 +15,8 @@ export const Nav = styled.div`
     @media (max-width: 960px) {
         trastion: 0.8s all ease;
         text-align:center;
+        justify-content: end;
+        padding: 0 0px;
     }
 `;
 export const NavbarContainer = styled.div`
@@ -95,7 +97,9 @@ export const GitHubButton = styled.a`
     }
     @media screen and (max-width: 768px) { 
     font-size: 10px;
-    }
+    align-items: center;
+    justify-content:center;
+  }
 `;
 
 export const ButtonContainer = styled.div`
@@ -107,6 +111,8 @@ export const ButtonContainer = styled.div`
   padding: 0 6px;
   @media screen and (max-width: 768px) {
     display: none;
+    align-items: center;
+    justify-content:center;
   }
 `;
 
@@ -118,7 +124,7 @@ export const MobileIcon = styled.div`
     position: absolute;
     top: 0;
     right: 0;
-    transform: translate(-50%, 60%);
+    transform: translate(-100%, 60%);
     font-size: 1rem;
     cursor: pointer;
     color: ${({ theme }) => theme.text_primary};
