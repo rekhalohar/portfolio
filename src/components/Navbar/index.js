@@ -1,234 +1,273 @@
-import React from "react";
-import { Link } from "react-router-dom";
-import styled from "styled-components";
-import { DiCssdeck } from "react-icons/di";
-import { FaBars } from "react-icons/fa";
+import React from 'react'
+import { Nav, NavLink, NavbarContainer, Span, NavLogo, NavItems, GitHubButton, ButtonContainer, MobileIcon, MobileMenu, MobileNavLogo, MobileLink } from './NavbarStyledComponent'
+import { DiCssdeck } from 'react-icons/di';
+import { FaBars } from 'react-icons/fa';
+import { Bio } from '../../data/constants';
+// import { Close, CloseRounded } from '@mui/icons-material';
+import { useTheme } from 'styled-components';
 
-const Nav = styled.div`
-  background-color: ${({ theme }) => theme.card_light};
-  height: 80px;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  display: flex;
-  z-index: 0;
-  @media screen and (max-width: 960px) {
-    transition: 0.8s all ease;
-  }
-`;
 
-const NavContainer = styled.div`
-  display: flex;
-  justify-content: space-between;
-  height: 60px;
-  z-index: 1;
-  width: 100%;
-  padding: 0 24px;
-  max-width: 1100px;
-`;
+//  const Nav = styled.div`
+//     background-color: ${({theme}) => theme.card_light};
+//     height: 80px;
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     font-size: 1rem;
+//     position: sticky;
+//     top: 0;
+//     z-index: 10;
+//     @media (max-width: 960px) {
+//         trastion: 0.8s all ease;
+//     }
+// `;
+//  const NavbarContainer = styled.div`
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   height: 60px;
+//   z-index: 1;
+//   width: 100%;
+//   padding: 0 24px;
+//   max-width: 1200px;
+// `;
 
-const NavLogo = styled(Link)`
-  width: 80%;
-  padding: 0 6px;
-  display: flex;
-  justify-self: flex-start;
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1.5rem;
-  align-items: center;
-  @media screen and (max-width: 660px) {
-    padding: 0 6px;
-  }
-`;
+//  const NavLogo = styled(LinkR)`
+//     width: 80%;    
+//     padding: 0 6px;
+//     display: flex;
+//     justify-content: start;
+//     align-items: center;
+//     text-decoration: none;
+//     @media (max-width: 640px) {
+//       padding: 0 0px;
+//   }
+// `;
+//  const Span = styled.div`
+//     padding: 0 4px;
+//     font-weight: bold;
+//     font-size: 18px;
+// `;
+//  const NavItems = styled.ul`
+//     width: 100%;
+//     display: flex;
+//     align-items: center;
+//     justify-content:center;
+//     gap: 32px;
+//     padding: 0 6px;
+//     list-style: none;
 
-const MobileIcon = styled.div`
-  display: none;
-  @media screen and (max-width: 660px) {
-    display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(-100%, 50%);
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: ${({ theme }) => theme.text_primary};
-  }
-`;
+//     @media screen and (max-width: 768px) {
+//       display: none;
+//     }
+// `;
 
-const NavItems = styled.ul`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 32px;
-  list-style: none;
-  @media screen and (max-width: 660px) {
-    display: none;
-  }
-`;
+//  const NavLink = styled.a`
+//     color: ${({ theme }) => theme.text_primary};
+//     font-weight: 500;
+//     cursor: pointer;
+//     transition: all 0.2s ease-in-out;
+//     text-decoration: none;
+//     :hover {
+//       color: ${({ theme }) => theme.primary};
+//     }
 
-const NavLink = styled.a`
-  color: ${({ theme }) => theme.text_primary};
-  font-size: 1.5rem;
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    color: ${({ theme }) => theme.primary};
-  }
-`;
+//     &.active {
+//       border-bottom: 2px solid ${({ theme }) => theme.primary};
+//     }
+// `;
 
-const GithubButton = styled.a`
-  border: 1.8px solid ${({ theme }) => theme.primary};
-  background-color: transparent;
-  justify-content: center;
-  display: flex;
-  align-items: center;
-  height: 70%;
-  border-radius: 20px;
-  color: ${({ theme }) => theme.primary};
-  cursor: pointer;
-  padding: 0 20px;
-  font-weight: 500;
-  text-decoration: none;
-  font-size: 16px;
-  transition: all 0.6s ease-in-out;
-  :hover {
-    background: ${({ theme }) => theme.primary};
-    color: ${({ theme }) => theme.white};
-  }
-  @media screen and (max-width: 768px) {
-    font-size: 14px;
-  }
-`;
 
-const ButtonContainer = styled.div`
-  width: 80%;
-  height: 100%;
-  display: flex;
-  justify-content: end;
-  align-items: center;
-  padding: 0 6px;
-  @media screen and (max-width: 768px) {
-    display: none;
-  }
-`;
+//  const GitHubButton = styled.a`
+//   border: 1.8px solid ${({ theme }) => theme.primary};
+//   justify-content: center;
+//   display: flex;
+//   align-items: center;
+//   height: 70%;
+//   border-radius: 20px;
+//   color: ${({ theme }) => theme.primary};
+//   cursor: pointer;
+//   padding: 0 20px;
+//   font-weight: 500;
+//   text-decoration: none;
+//   font-size: 16px;
+//   transition: all 0.6s ease-in-out;
+//     :hover {
+//       background: ${({ theme }) => theme.primary};
+//       color: ${({ theme }) => theme.white};     
+//     }
+//     @media screen and (max-width: 768px) { 
+//     font-size: 14px;
+//     }
+// `;
 
-const MobileMenu = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 20px;
-  position: absolute;
-  top: 80px;
-  right: 0;
-  width: 100%;
-  padding: 0 24px;
-  background: ${({ theme }) => theme.card_light}; /* Fix background color */
-  transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
-  border-radius: 0 0 20px 20px;
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
-  opacity: ${({ open }) => (open ? 1 : 0)};
-  z-index: ${({ open }) => (open ? 1 : -1)};
-`;
+//  const ButtonContainer = styled.div`
+//   width: 80%;  
+//   height: 100%;
+//   display: flex;
+//   justify-content: end;
+//   align-items: center;
+//   padding: 0 6px;
+//   @media screen and (max-width: 768px) {
+//     display: none;
+//   }
+// `;
 
-const MobileMenuLinks = styled(Link)`
-  color: ${({ theme }) => theme.text_primary};
-  font-weight: 500;
-  cursor: pointer;
-  text-decoration: none;
-  transition: all 0.2s ease-in-out;
-  &:hover {
-    color: ${({ theme }) => theme.text_primary};
-  }
-`;
+
+//  const MobileIcon = styled.div`
+//   display: none;
+//   @media screen and (max-width: 768px) {
+//     display: block;
+//     position: absolute;
+//     top: 0;
+//     right: 0;
+//     transform: translate(-100%, 60%);
+//     font-size: 1.5rem;
+//     cursor: pointer;
+//     color: ${({ theme }) => theme.text_primary};
+//   }
+// `
+
+//  const MobileMenu = styled.div`
+//     display: flex;
+//     flex-direction: column;
+//     justify-content: center;
+//     gap: 16px;
+//     position: absolute;
+//     top: 80px;
+//     right: 0;
+//     width: 100%;
+//     padding: 12px 40px 24px 40px;
+//     background: ${({ theme }) => theme.card_light+99};
+//     transition: all 0.6s ease-in-out;
+//     transform: ${({ isOpen }) => (isOpen ? 'translateY(0)' : 'translateY(-100%)')};
+//     border-radius: 0 0 20px 20px;
+//     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+//     opacity: ${({ isOpen }) => (isOpen ? '100%' : '0')};
+//     z-index: ${({ isOpen }) => (isOpen ? '1000' : '-1000')};
+
+// `
+
+// const MobileMenuItems = styled.ul`
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+//   justify-content: center;
+//   gap: 32px;
+//   list-style: none;
+//   width: 100%;
+//   height: 100%;
+// `
+//  const MobileMenuLink = styled(LinkR)`
+//   color: ${({ theme }) => theme.text_primary};
+//   font-weight: 500;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in-out;
+//   text-decoration: none;
+//   :hover {
+//     color: ${({ theme }) => theme.primary};
+//   }
+
+//   &.active {
+//     border-bottom: 2px solid ${({ theme }) => theme.primary};
+//   }
+// `;
+//  const MobileMenuButton = styled.a`
+//   border: 1.8px solid ${({ theme }) => theme.primary};
+//   justify-content: center;
+//   display: flex;
+//   align-items: center;
+//   height: 70%;
+//   border-radius: 20px;
+//   color: ${({ theme }) => theme.primary};
+//   cursor: pointer;
+//   padding: 0 20px;
+//   font-weight: 500;
+//   text-decoration: none;
+//   font-size: 16px;
+//   transition: all 0.6s ease-in-out;
+
+//   :hover {
+//     background: ${({ theme }) => theme.primary};
+//     color: ${({ theme }) => theme.white};
+//   }
+// `;
+//   const MobileLink = styled.a`
+//   color: ${({ theme }) => theme.text_primary};
+//   font-weight: 500;
+//   cursor: pointer;
+//   transition: all 0.2s ease-in-out;
+//   text-decoration: none;
+//   :hover {
+//     color: ${({ theme }) => theme.primary};
+//   }
+
+//   &.active {
+//     border-bottom: 2px solid ${({ theme }) => theme.primary};
+//   }
+// `;
+//  const MobileNavLogo = styled(LinkR)`
+//   width: 80%;
+//   padding: 0 6px;
+//   display: flex;
+//   justify-content: start;
+//   align-items: center;
+//   text-decoration: none;
+//   @media (max-width: 640px) {
+//     padding: 0 0px;
+//   }
+// `;
 
 const Navbar = () => {
-  const [open, setOpen] = React.useState(false);
-  // const theme = useThMenuLinks // If useThMenuLinks is a custom hook, make sure it's properly imported or defined
+  const [isOpen, setIsOpen] = React.useState(false);
+  const theme = useTheme()
   return (
     <Nav>
-      <NavContainer>
-        <NavLogo to="/">
-          <a
-            style={{
-              display: "flex",
-              alignItems: "center",
-              color: "white",
-              marginBottom: "20px", // Add "px"
-              cursor: "pointer",
-            }}
-          >
-            <DiCssdeck size="3rem" />
-            <span>portfolio</span>
+      <NavbarContainer>
+        <NavLogo to='/'>
+          <a style={{ display: "flex", alignItems: "center", color: "white", marginBottom: '20;', cursor: 'pointer' }}>
+            <DiCssdeck size="3rem" /> <Span>Portfolio</Span>
           </a>
         </NavLogo>
         <MobileIcon>
-          <FaBars onClick={() => setOpen(!open)} />
+          <FaBars onClick={() => {
+            setIsOpen(!isOpen)
+          }} />
         </MobileIcon>
         <NavItems>
           <NavLink href="#about">About</NavLink>
-          <NavLink href="#Skills">Skills</NavLink>
-          <NavLink href="#Experience">Experience</NavLink>
-          <NavLink href="#Projects">Projects</NavLink>
-          <NavLink href="#Education">Education</NavLink>
+          <NavLink href='#skills'>Skills</NavLink>
+          <NavLink href='#experience'>Experience</NavLink>
+          <NavLink href='#education'>Education</NavLink>
+          <NavLink href='#Contact'>Contact</NavLink>  
         </NavItems>
         <ButtonContainer>
-          {/* Replace the below button with appropriate logic */}
-          <GithubButton>Github Profile</GithubButton>
+        <GitHubButton href="https://github.com/rekhalohar/portfolio" target="_blank">Github Profile</GitHubButton>
         </ButtonContainer>
-      </NavContainer>
-      <MobileMenu open={open}>
-        <MobileMenuLinks
-          href="#about"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          About
-        </MobileMenuLinks>
-        <MobileMenuLinks
-          href="#Skills"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          Skills
-        </MobileMenuLinks>
-
-        <MobileMenuLinks
-          href="#Experience"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          Experience
-        </MobileMenuLinks>
-        <MobileMenuLinks
-          href="#Projects"
-          onClick={() => {
-            setOpen(!open);
-          }}
-        >
-          Projects
-        </MobileMenuLinks>
-        {/* <GithubButton
-          style={{
-            padding: "10px 16px",
-            background: `${theme.promary}`,
-            color: "white",
-            width: "max-content",
-          }}
-          href={Bio.github}
-          target="_blank"
-        >
-          {" "}
-          Github profile
-        </GithubButton> */}
-      </MobileMenu>
+        {
+          isOpen &&
+          <MobileMenu isOpen={isOpen}>
+            <MobileLink href="#about" onClick={() => {
+              setIsOpen(!isOpen)
+            }}>About</MobileLink>
+            <MobileLink href='#skills' onClick={() => {
+              setIsOpen(!isOpen)
+            }}>Skills</MobileLink>
+            <MobileLink href='#experience' onClick={() => {
+              setIsOpen(!isOpen)
+            }}>Experience</MobileLink>
+            <MobileLink href='#education' onClick={() => {
+              setIsOpen(!isOpen)
+            }}>Education</MobileLink>
+              <MobileLink href='#contact' onClick={() => {
+              setIsOpen(!isOpen)
+            }}>Contact</MobileLink>
+            <GitHubButton style={{padding: '10px 16px',background: `${theme.primary}`, color: 'white',width: 'max-content'}} href={Bio.github} target="_blank">Github Profile</GitHubButton>
+          </MobileMenu>
+        }
+      </NavbarContainer>
     </Nav>
-  );
-};
+  )
+}
 
-export default Navbar;
+export default Navbar

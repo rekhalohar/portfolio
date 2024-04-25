@@ -8,7 +8,7 @@ import Skills from "./components/Skills";
 import Education from "./components/Education";
 import Experience from "./components/Experience"; // Corrected import statement
 // import Projects  from './components/Projects';
-import Contacts from "./components/Contacts";
+import Contact from "./components/Contact";
 import { BrowserRouter as Router } from "react-router-dom";
 
 const Body = styled.div`
@@ -34,7 +34,7 @@ function App() {
             <Skills />
             <Experience />
             <Education />
-            <Contacts/>
+            <Contact />
           </Wrapper>
           {/* <Projects/> */}
         </Body>
