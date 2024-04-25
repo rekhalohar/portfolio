@@ -14,6 +14,7 @@ export const Nav = styled.div`
     z-index: 10;
     @media (max-width: 960px) {
         trastion: 0.8s all ease;
+        text-align:center;
     }
 `;
 export const NavbarContainer = styled.div`
@@ -54,6 +55,7 @@ export const NavItems = styled.ul`
 
     @media screen and (max-width: 668px) {
       display: none;
+      text-align:center;
     }
 `;
 
