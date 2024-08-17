@@ -73,10 +73,6 @@ export const Bio = {
           image:
             "https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original-wordmark.svg",
         },
-        {
-          name: "Firebase",
-          image: "https://www.vectorlogo.zone/logos/firebase/firebase-icon.svg",
-        },
       ],
     },
     {
@@ -87,11 +83,7 @@ export const Bio = {
           image:
             "https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg",
         },
-        {
-          name: "Kotlin",
-          image:
-            "https://www.vectorlogo.zone/logos/kotlinlang/kotlinlang-icon.svg",
-        },
+
         {
           name: "XML",
           image:
